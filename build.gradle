@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    implementation 'io.dropwizard:dropwizard-testing:2.0.18'
+    implementation 'io.dropwizard:dropwizard-core:2.0.18'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.5'
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    implementation "org.codehaus.groovy:groovy:3.0.7"
+    testImplementation platform("org.spockframework:spock-bom:2.0-M4-groovy-3.0")
+    testImplementation "org.spockframework:spock-core"
+}
+
+group = 'com.interview'
+version = '0.0.1-SNAPSHOT'
+description = 'hello-world'
+java.sourceCompatibility = JavaVersion.VERSION_15
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+shadowJar {
+    destinationDir  = file("$rootDir/example")
+    archiveClassifier = ''
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.interview.HelloWorldApplication'
+        )
+    }
+}
