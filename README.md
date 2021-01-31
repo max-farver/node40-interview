@@ -1,5 +1,7 @@
 # Maxwell Farver - Interview
 
+**Hosted on DigitalOcean at** [https://node-40-interview-tr5x9.ondigitalocean.app/hello-world](https://node-40-interview-tr5x9.ondigitalocean.app/hello-world)
+
 ## Run commands
 - ```java -jar example/hello-world-0.0.1-SNAPSHOT.jar server hello-world.yml```
 
