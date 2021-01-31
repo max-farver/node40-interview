@@ -7,6 +7,7 @@
 - Gradle used
 - Second resource method added
 - Unit tests written using Spock
+- Dockerfile added for ease of hosting
 
 ## Endpoints
 
